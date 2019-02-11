@@ -127,7 +127,7 @@ while True:
             pygame.quit()
             sys.exit()
     
-    for index in range(len(cell_map)):
+    surface.fill(BLACK)
         cell = cell_map[index]
         alive_neighbours = check_alive_neighbours(cell_map, index)
 
