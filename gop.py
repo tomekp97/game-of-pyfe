@@ -155,5 +155,5 @@ while True:
 
         cell.spawn()
 
-    # time.sleep(0.5)
+    time.sleep(0.2)
     pygame.display.update()
