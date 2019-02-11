@@ -25,7 +25,7 @@ GRIDHEIGHT = int(HEIGHT / CELL_SIZE)
 
 MAX_STARTING_CELLS = 100
 
-starting_cells = 0
+# starting_cells = 0
 
 pygame.init()
 surface = pygame.display.set_mode((WIDTH,HEIGHT))
