@@ -11,7 +11,7 @@ Rules:
     Any live cell with more than three live neighbors dies, as if by overpopulation.
     Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 """
-FPS = 1
+FPS = 10
 
 WIDTH = 400
 HEIGHT = 400
