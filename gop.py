@@ -26,8 +26,6 @@ CELL_INDEX_CHANGE = GRIDWIDTH
 
 MAX_STARTING_CELLS = CELL_SIZE * 22
 
-# starting_cells = 0
-
 pygame.init()
 surface = pygame.display.set_mode((WIDTH,HEIGHT))
 clock = pygame.time.Clock()
@@ -35,8 +33,6 @@ clock = pygame.time.Clock()
 class Cell(pygame.Rect):
     def __init__(self, x, y):
         self.alive = False
-        self.neighbours = 0
-
         self.x = x
         self.y = y
         self.width = CELL_SIZE
