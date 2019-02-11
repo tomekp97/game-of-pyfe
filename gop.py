@@ -63,35 +63,48 @@ def check_alive_neighbours(array, index):
     neighbours = []
     alive_neighbours = 0
 
-    n_top_left = array[index  - (CELL_SIZE + 1)]
-    n_top = array[index - CELL_SIZE]
-    n_top_right = array[index - (CELL_SIZE - 1)]
+    if array[index].y != 0 and array[index].x != 0:
+        n_top_left = array[index  - (CELL_SIZE + 1)]
+        neighbours.append(n_top_left)
 
-    neighbours.append(n_top_left)
-    neighbours.append(n_top)
-    neighbours.append(n_top_right)
+    if array[index].y != 0:
+        n_top = array[index - CELL_SIZE]
+        neighbours.append(n_top)
 
-    n_left = array[index - 1]
-    n_right = array[index - 1]
+        if array[index].x != 0:
+            n_top_left = array[index  - (CELL_SIZE + 1)]
+            neighbours.append(n_top_left)
+        
+        if array[index].x != WIDTH - CELL_SIZE:
+            n_top_right = array[index - (CELL_SIZE - 1)]
+            neighbours.append(n_top_right)
 
-    neighbours.append(n_left)
-    neighbours.append(n_right)
+    if array[index].x != 0:
+        n_left = array[index - 1]
+        neighbours.append(n_left)
+
+    if array[index].x != WIDTH - CELL_SIZE:
+        n_right = array[index - 1]
+        neighbours.append(n_right)
 
     try:
         n_bottom_left = array[index + (CELL_SIZE - 1)]
-        neighbours.append(n_bottom_left)
+        if n_bottom_left.x != 0 and n_bottom_left.y != HEIGHT - CELL_SIZE:
+            neighbours.append(n_bottom_left)
     except:
         pass
 
     try:
         n_bottom = array[index + CELL_SIZE]
-        neighbours.append(n_bottom)
+        if n_bottom.y != HEIGHT - CELL_SIZE:
+            neighbours.append(n_bottom)
     except:
         pass
 
     try:
         n_bottom_right = array[index + (CELL_SIZE + 1)]
-        neighbours.append(n_bottom_right)
+        if n_bottom_right.x != WIDTH - CELL_SIZE and n_bottom_right.y != HEIGHT - CELL_SIZE:
+            neighbours.append(n_bottom_right)
     except:
         pass
 
