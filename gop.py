@@ -126,25 +126,34 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    
+
     surface.fill(BLACK)
+
+    for index in range(0, len(cell_map)):
         cell = cell_map[index]
+        # print(cell)
         alive_neighbours = check_alive_neighbours(cell_map, index)
 
         if cell.alive and alive_neighbours < 2:
-            cell_map[index].alive = False
+            cell.alive = False
+            # print(cell_map[index].alive)
 
-        elif cell.alive and (alive_neighbours == 2 or alive_neighbours == 3):
-            cell_map[index].alive = True
+        if cell.alive and (alive_neighbours == 2 or alive_neighbours == 3):
+            cell.alive = True
+            # print(cell_map[index].alive)
         
-        elif cell.alive and alive_neighbours > 3:
-            cell_map[index].alive = False
+        if cell.alive and alive_neighbours > 3:
+            cell.alive = False
+            # print(cell_map[index].alive)
         
-        elif not cell.alive and alive_neighbours == 3:
-            cell_map[index].alive = True
+        if not cell.alive and alive_neighbours == 3:
+            cell.alive = True
+            # print(cell_map[index].alive)
         
-        print(cell.alive)
+        # if cell.alive and alive_neighbours < 1:
+        #     cell.alive = False
+        
+        cell.spawn()
 
-        cell_map[index].spawn()
-
+    # time.sleep(0.5)
     pygame.display.update()
