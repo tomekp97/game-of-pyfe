@@ -40,15 +40,15 @@ class Cell(pygame.Rect):
 
     def spawn(self):
         if self.alive:
-            pygame.draw.rect(surface, WHITE, self)
+            pygame.draw.rect(surface, WHITE, self, 1)
         else:
-            pygame.draw.rect(surface, BLACK, self)
+            pygame.draw.rect(surface, BLACK, self, 1)
     
 def generate_cells():
     cell_map = []
 
-    for x in range(0, WIDTH, CELL_SIZE):
-        for y in range(0, HEIGHT, CELL_SIZE):
+    for y in range(0, WIDTH, CELL_SIZE):
+        for x in range(0, HEIGHT, CELL_SIZE):
             cell = Cell(x, y)
             cell_map.append(cell)
 
