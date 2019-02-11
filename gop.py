@@ -125,7 +125,6 @@ def starting_spawn():
         cell = cell_map[random_cell_index]
         cell_map[random_cell_index].alive = True
         cell_map[random_cell_index].spawn()
-        print(cell.alive)
 
         starting_cells += 1
 
@@ -144,28 +143,20 @@ while True:
 
     for index in range(0, len(cell_map)):
         cell = cell_map[index]
-        # print(cell)
         alive_neighbours = check_alive_neighbours(cell_map, index)
 
         if cell.alive and alive_neighbours < 2:
             cell.alive = False
-            # print(cell_map[index].alive)
 
         if cell.alive and (alive_neighbours == 2 or alive_neighbours == 3):
             cell.alive = True
-            # print(cell_map[index].alive)
         
         if cell.alive and alive_neighbours > 3:
             cell.alive = False
-            # print(cell_map[index].alive)
         
         if not cell.alive and alive_neighbours == 3:
             cell.alive = True
-            # print(cell_map[index].alive)
-        
-        # if cell.alive and alive_neighbours < 1:
-        #     cell.alive = False
-        
+
         cell.spawn()
 
     # time.sleep(0.5)
