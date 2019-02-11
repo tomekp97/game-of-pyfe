@@ -131,7 +131,6 @@ def generation_spawn():
 generation_spawn()
 
 while True:
-    time.sleep(1)
     clock.tick(FPS)
     generation_spawn()
 
