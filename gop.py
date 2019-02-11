@@ -121,7 +121,6 @@ def generation_spawn():
         random_cell_index = random.randrange(len(cell_map))
         cell = cell_map[random_cell_index]
         cell_map[random_cell_index].alive = True
-        cell_map[random_cell_index].spawn()
 
         starting_cells += 1
 
