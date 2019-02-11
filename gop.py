@@ -114,8 +114,8 @@ def check_alive_neighbours(array, index):
 
     return alive_neighbours
 
-def starting_spawn():
-    global starting_cells
+def generation_spawn():
+    starting_cells = 0
 
     for sc in range(0, MAX_STARTING_CELLS):
         if starting_cells == MAX_STARTING_CELLS:
@@ -128,11 +128,12 @@ def starting_spawn():
 
         starting_cells += 1
 
-starting_spawn()
+generation_spawn()
 
 while True:
     time.sleep(1)
     clock.tick(FPS)
+    generation_spawn()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
